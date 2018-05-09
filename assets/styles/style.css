@@ -1,9 +1,21 @@
+body{    
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+
 #gifDisplay {
     position: relative;
 }
-
+.card {
+    display: inline-block;
+    width: 165px;
+}
+.card-img-top{
+    height:135px;
+    width:165px;
+    padding: 3px;
+}
 .footer {
-    position: relative;
+    position: fixed;
     bottom: 0px;
     width: 100%;
 }

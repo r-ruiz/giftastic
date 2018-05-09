@@ -36,7 +36,7 @@ function renderButtons() {
 function randomGifs(){
     $("#gifTitle").html("<h4>Gifs: Trending</h4>");
     $.ajax({
-        url:"https://api.giphy.com/v1/gifs/trending?api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6",
+        url:"https://api.giphy.com/v1/gifs/trending?api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=10",
         method: "GET"
     })
     // Promise has been initiated for modification
@@ -45,12 +45,14 @@ function randomGifs(){
         var results = response.data;
         for (var i = 0; i < results.length; i++){
             if (results[i].rating !== "r"){
-                // Creating an image tag
-                var gifImage = $("<img class='rounded img-thumbnail'>");
-                // Giving the image tag an src attribute of a proprty pulled off the result item
+                var gifDiv = $("<div class='card'>");
+                var p = $("<p class='card-title text-center'>").text("Rating: " + results[i].rating);
+                var gifImage = $("<img class='card-img-top'>");
                 gifImage.attr("src", results[i].images.fixed_height.url);
-                // Prepending the gifImage to the "#gifDisplay" div in the HTML
-                $("#gifDisplay").prepend(gifImage);
+                gifDiv.append(gifImage);
+                gifDiv.append(p);
+                //  Prepending the gifImage to the "#gifDisplay" div in the HTML
+                $("#gifDisplay").prepend(gifDiv);
             }
         }    
     });
@@ -60,7 +62,7 @@ function displayGifs(){
     $(".btn-secondary").on("click", function(){
         $("#gifDisplay").empty();
         var myGifs = $(this).attr("data-gif");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + myGifs + "&api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + myGifs + "&api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=10";
         $("#gifTitle").html("<h4>Gifs: " + myGifs + "</h4>");
         $.ajax({
             url:queryURL,
@@ -73,10 +75,14 @@ function displayGifs(){
             for (var i = 0; i < results.length; i++){
                 // check the rating of the displayed gif
                 if (results[i].rating !== "r"){
-                    var gifImage = $("<img class='rounded img-thumbnail'>");
+                    var gifDiv = $("<div class='card'>");
+                    var p = $("<p class='card-title text-center'>").text("Rating: " + results[i].rating);
+                    var gifImage = $("<img class='card-img-top'>");
                     gifImage.attr("src", results[i].images.fixed_height.url);
+                    gifDiv.append(gifImage);
+                    gifDiv.append(p);
                     //  Prepending the gifImage to the "#gifDisplay" div in the HTML
-                    $("#gifDisplay").prepend(gifImage);
+                    $("#gifDisplay").prepend(gifDiv);
                 
                 }
                 
