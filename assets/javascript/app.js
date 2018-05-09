@@ -44,7 +44,7 @@ function renderButtons() {
 function randomGifs(){
     $("#gifTitle").html("<h4>Gifs: Trending</h4>");
     $.ajax({
-        url:"http://api.giphy.com/v1/gifs/trending?api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6",
+        url:"https://api.giphy.com/v1/gifs/trending?api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6",
         method: "GET"
     })
 // Promise has been initiated for modification
@@ -81,7 +81,7 @@ function displayGifs(){
     $(".btn-secondary").on("click", function(){
         $("#gifDisplay").empty();
         var myGifs = $(this).attr("data-gif");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + myGifs + "&api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + myGifs + "&api_key=5MyMqktou2jxB81XKaoVlMQ6Xl0QZXZx&limit=6";
         $("#gifTitle").html("<h4>Gifs: " + myGifs + "</h4>");
         $.ajax({
             url:queryURL,
