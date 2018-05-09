@@ -26,31 +26,39 @@
         
                 <div class="col-lg-3">
         
-                <h1 class="my-4">Gifify</h1>
+                <h4>
+                    Click the buttons!
+                </h4>
                 <hr />
+                <div id="buttons" >
+                        <button type="button" class="btn btn-secondary mb-2" data-gif="Micheal Scott">Micheal Scott</button>
+                        <button type="button" class="btn btn-secondary mb-2" data-gif="Patrick Stewart">Patrick Stewart</button>
+                        <button type="button" class="btn btn-secondary mb-2" data-gif="John Dorian">John Dorian</button>
+                </div>
+                <hr />
+                <h4>
+                    Add a button!
+                </h4>
                 <form class="form-inline">
                     <div class="form-group mx-xs-3 mb-2">
                         <label for="search" class="sr-only">Gif Search</label>
-                        <input type="search" class="form-control" id="gifSearch" placeholder="Search Gifs">
+                        <input type="text" class="form-control" id="gifSearch" placeholder="Add Gifs">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Search!</button>
+                    <button type="submit" id="add-gif" class="btn btn-primary mb-2">Add!</button>
                 </form>
-                <div id="gifList" class="list-group">
-                    <a href="#" class="list-group-item">Gif 1</a>
-                    <a href="#" class="list-group-item">Gif 2</a>
-                    <a href="#" class="list-group-item">Gif 3</a>
-                </div>
         
                 </div>
                 <!-- /.col-lg-3 -->
         
-                <div class="col-lg-9">
-        
+                <div class="col">
+                        <div id="gifTitle">
+                        
+                            </div>
                 <div class="row">
+                    
         
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="text-center">
-                            <img src="..." class="rounded" alt="...">
+                    <div class="col">
+                        <div id="gifDisplay">
                         </div>
                     </div>
         
@@ -67,11 +75,12 @@
             <!-- /.container -->
         
             <!-- Footer -->
-            <footer class="py-5 bg-dark">
-            <div class="container">
+            <footer class="footer py-5 bg-dark">
+            <div class="container-fluid">
                 <p class="m-0 text-center text-white">Copyright &copy; Ruben Ruiz 2018</p>
             </div>
             <!-- /.container -->
             </footer>
+    <script src="assets/javascript/app.js"></script>       
 </body>
 </html>
