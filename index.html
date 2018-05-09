@@ -13,27 +13,21 @@
 </head>
 <body>
     <header class="py-5 bg-dark">
-            <div class="container">
-                <h1 class="m-0 text-center text-white">
-                    Giftastic!
+        <div class="container">
+            <h1 class="m-0 text-center text-white">
+                Giftastic!
             </h1>
-            </div>
-            <!-- /.container -->
-        </header>
+        </div>
+    </header>
     <div class="container mt-3">
-
-            <div class="row">
-        
-                <div class="col-lg-3">
-        
+        <div class="row">
+            <div class="col-lg-3">
                 <h4>
                     Click the buttons!
                 </h4>
                 <hr />
                 <div id="buttons" >
-                        <button type="button" class="btn btn-secondary mb-2" data-gif="Micheal Scott">Micheal Scott</button>
-                        <button type="button" class="btn btn-secondary mb-2" data-gif="Patrick Stewart">Patrick Stewart</button>
-                        <button type="button" class="btn btn-secondary mb-2" data-gif="John Dorian">John Dorian</button>
+                  <!--rendered buttons here -->     
                 </div>
                 <hr />
                 <h4>
@@ -42,45 +36,30 @@
                 <form class="form-inline">
                     <div class="form-group mx-xs-3 mb-2">
                         <label for="search" class="sr-only">Gif Search</label>
-                        <input type="text" class="form-control" id="gifSearch" placeholder="Add Gifs">
+                        <input type="text" class="form-control" id="gifSearch" placeholder="Gif button search">
                     </div>
                     <button type="submit" id="add-gif" class="btn btn-primary mb-2">Add!</button>
                 </form>
-        
+            </div>        
+            <div class="col">
+                <div id="gifTitle">
+                     <!--Title of gif group being displayed-->   
                 </div>
-                <!-- /.col-lg-3 -->
-        
-                <div class="col">
-                        <div id="gifTitle">
-                        
-                            </div>
-                <div class="row">
-                    
-        
+                <div class="row">        
                     <div class="col">
                         <div id="gifDisplay">
                         </div>
                     </div>
-        
                 </div>
-                <!-- /.row -->
-        
-                </div>
-                <!-- /.col-lg-9 -->
-        
-            </div>
-            <!-- /.row -->
-        
-            </div>
-            <!-- /.container -->
-        
-            <!-- Footer -->
-            <footer class="footer py-5 bg-dark">
-            <div class="container-fluid">
-                <p class="m-0 text-center text-white">Copyright &copy; Ruben Ruiz 2018</p>
-            </div>
-            <!-- /.container -->
-            </footer>
+            </div>        
+        </div>
+    </div>        
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark">
+        <div class="container-fluid">
+            <p class="m-0 text-center text-white">Copyright &copy; Ruben Ruiz 2018</p>
+        </div>
+    </footer>
     <script src="assets/javascript/app.js"></script>       
 </body>
 </html>
