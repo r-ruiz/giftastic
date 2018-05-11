@@ -7,10 +7,14 @@ function addGifButton() {
         event.preventDefault();
         // This line grabs the input from the textbox
         var gif = $("#gifSearch").val().trim();
-
-        // Adding gif idea from the textbox to our array
-        gifButtons.push(gif);
-        $("#gifSearch").val("");
+        if (gif ===""){
+            alert("You must ener something!");
+        }
+        else {
+            // Adding gif idea from the textbox to our array
+            gifButtons.push(gif);
+            $("#gifSearch").val("");
+        }
         renderButtons();
     });
 }
@@ -82,11 +86,11 @@ function displayGifs(){
                     var gifDiv = $("<div class='card'>");
                     var p = $("<p class='card-title text-center'>").text("Rating: " + results[i].rating);
                     var gifImage = $("<img>");
+                    gifImage.attr("class", "card-img-top gif");
                     gifImage.attr("src", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-animate", results[i].images.fixed_height.url);
                     gifImage.attr("data-state", "still");
-                    gifImage.attr("class", "card-img-top gif");
                     gifDiv.append(gifImage);
                     gifDiv.append(p);
                     //  Prepending the gifImage to the "#gifDisplay" div in the HTML
@@ -101,8 +105,9 @@ function displayGifs(){
 }
 
 function gifify() {
-    //$(".gif").on("click", alert("hello"));
-    $("img").on("click", function() {
+    // Since this is all dynamically rendered images with a class of .gif, we have to monitor 
+    // the body and wait for the class to be rendered to track the click event
+    $("body").on("click", ".gif", function() {
         var state = $(this).attr("data-state");
         console.log(this);
         if (state === "still") {
@@ -117,11 +122,12 @@ function gifify() {
         }
     });
 }
-
+    
 $(document).ready(function(){
     randomGifs();
     renderButtons();
     addGifButton();
+    gifify();
 });
 
 
