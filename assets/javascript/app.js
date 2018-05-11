@@ -47,8 +47,12 @@ function randomGifs(){
             if (results[i].rating !== "r"){
                 var gifDiv = $("<div class='card'>");
                 var p = $("<p class='card-title text-center'>").text("Rating: " + results[i].rating);
-                var gifImage = $("<img class='card-img-top'>");
-                gifImage.attr("src", results[i].images.fixed_height.url);
+                var gifImage = $("<img>");
+                gifImage.attr("src", results[i].images.fixed_height_still.url);
+                gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+                gifImage.attr("data-animate", results[i].images.fixed_height.url);
+                gifImage.attr("data-state", "still");
+                gifImage.attr("class", "card-img-top gif");
                 gifDiv.append(gifImage);
                 gifDiv.append(p);
                 //  Prepending the gifImage to the "#gifDisplay" div in the HTML
@@ -77,8 +81,12 @@ function displayGifs(){
                 if (results[i].rating !== "r"){
                     var gifDiv = $("<div class='card'>");
                     var p = $("<p class='card-title text-center'>").text("Rating: " + results[i].rating);
-                    var gifImage = $("<img class='card-img-top'>");
-                    gifImage.attr("src", results[i].images.fixed_height.url);
+                    var gifImage = $("<img>");
+                    gifImage.attr("src", results[i].images.fixed_height_still.url);
+                    gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    gifImage.attr("data-animate", results[i].images.fixed_height.url);
+                    gifImage.attr("data-state", "still");
+                    gifImage.attr("class", "card-img-top gif");
                     gifDiv.append(gifImage);
                     gifDiv.append(p);
                     //  Prepending the gifImage to the "#gifDisplay" div in the HTML
@@ -92,8 +100,28 @@ function displayGifs(){
     });
 }
 
+function gifify() {
+    //$(".gif").on("click", alert("hello"));
+    $("img").on("click", function() {
+        var state = $(this).attr("data-state");
+        console.log(this);
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+          console.log(this);
+        } 
+        else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+          console.log(this);
+        }
+    });
+}
+
 $(document).ready(function(){
     randomGifs();
     renderButtons();
     addGifButton();
 });
+
+
